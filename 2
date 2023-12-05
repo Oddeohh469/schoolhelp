@@ -1,0 +1,70 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+
+{
+
+int main()
+	// Seeding the random number generator
+	srand(time(NULL));
+
+	// Generate a random number between 1 and 100 
+	int secretNumber = rand() % 100 + 1;
+
+	// Variables
+int guess()
+
+	// Welcome message
+	printf("Welcome to the number guessing game. Are you a WINNER. The computer will select a number\n");
+	printf("between 1 and 100. All you havee to do is guess the secret number. You are\n");
+	printf("allowed 5 guesses.\n\n");
+
+int attempts = 5;
+	// Game loop
+	while (attempts > 0) {
+		// User input
+		printf("Please enter a number between 1 and 100:");
+		scanf("%d", &guess);
+
+		// Check if the guess is within the valid range
+		if (guess < 1 || guess > 100) {
+			printf("You did not enter a valid number between 1 and 100.\n\n");
+			continue;
+
+		}
+
+		// Check if the guess is correct
+		if (guess == secretNumber) {
+			printf("You Win!\n");
+
+			// Provide a congratulatory message based on attempts
+			if (attempts == 5)
+				printf("You guessed the secret number on your first try! Amazing!\n");
+		}
+		else {
+			printf("You just barely guessed the secret number in time!\n");
+		}
+
+		// Exit the loop on correct guess
+		if (guess > secretNumber) {
+			printf("Your guess was to high.\n");
+		}
+		else {
+			printf("Your guess was to low.\n");
+
+			// Display remaining attempts
+			printf("You have %d guess(es) left.\n\n");
+		}
+	}
+
+	// If the user didn't guess the number in 5 attempts
+	if (attempts == 0) {
+		printf("Sorry, you did not guess the number. The correct number was %d.\n", secretNumber);
+	}
+
+	system("pause");
+	return 1;
+
+}
